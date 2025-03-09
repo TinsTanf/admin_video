@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Users from "./pages/Users";
+import Statistical from "./pages/Statistical";
+import BackupRestore from "./pages/BackupRestore";
+
+// Component bảo vệ các trang cần đăng nhập
+const PrivateRoute = ({ element }) => {
+  const isAuthenticated = localStorage.getItem("isAuthenticated"); // Kiểm tra trạng thái đăng nhập
+  return isAuthenticated ? element : <Navigate to="/" />;
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
+        <Route path="/users" element={<PrivateRoute element={<Users />} />} />
+        <Route path="/statistical" element={<PrivateRoute element={<Statistical />} />} />
+        <Route path="/backup-restore" element={<PrivateRoute element={<BackupRestore />} />} />
+      </Routes>
+    </Router>
   );
 }
 
