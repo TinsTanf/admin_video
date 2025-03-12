@@ -73,7 +73,7 @@ const Users = () => {
     { title: "Email", dataIndex: "email", key: "email" },
     { title: "Trạng thái", dataIndex: "status", key: "status" },
     {
-      title: "Hành động"  ,
+      title: "Hành động",
       key: "action",
       render: (_, record) => (
         <>
@@ -91,35 +91,35 @@ const Users = () => {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh", background: "#1a1d2e" }}>
+    <Layout style={{ minHeight: "100vh", background: "#f5f5f5" }}>
       <Sidebar />
       <Layout>
         <Header />
-        <Content style={{ margin: "20px", padding: "20px", background: "#2a2d3e", borderRadius: "8px", color: "#fff" }}>
-          <h2 style={{ color: "#fff" }}>Quản lý người dùng</h2>
+        <Content style={{ margin: "20px", padding: "20px", background: "#ffffff", borderRadius: "8px", color: "#333", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+          <h2 style={{ color: "#333" }}>Quản lý người dùng</h2>
           <Button type="primary" style={{ marginBottom: 10, marginRight: 10 }} onClick={handleCreateUser}>
             Tạo User
           </Button>
           <Button type="default" style={{ marginBottom: 10 }} onClick={handleRefresh}>
             Làm mới
           </Button>
-          <Table columns={columns} dataSource={users} pagination={false} style={{ background: "#2a2d3e", color: "#fff" }} />
+          <Table columns={columns} dataSource={users} pagination={false} />
 
           {editingUser && (
             <>
-              <h3 style={{ marginTop: "20px", color: "#fff" }}>Cập nhật người dùng</h3>
-              <Form form={form} layout="vertical" style={{ maxWidth: "600px", background: "#2a2d3e", padding: "20px", borderRadius: "8px" }}>
-                <Form.Item name="name" label={<span style={{ color: "#fff" }}>Tên</span>}>
-                  <Input style={{ background: "#3a3d4e", color: "#fff" }} />
+              <h3 style={{ marginTop: "20px", color: "#333" }}>Cập nhật người dùng</h3>
+              <Form form={form} layout="vertical" style={{ maxWidth: "600px", background: "#ffffff", padding: "20px", borderRadius: "8px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
+                <Form.Item name="name" label="Tên">
+                  <Input />
                 </Form.Item>
-                <Form.Item name="phone" label={<span style={{ color: "#fff" }}>Số điện thoại</span>}>
-                  <Input style={{ background: "#3a3d4e", color: "#fff" }} />
+                <Form.Item name="phone" label="Số điện thoại">
+                  <Input />
                 </Form.Item>
-                <Form.Item name="email" label={<span style={{ color: "#fff" }}>Email</span>}>
-                  <Input style={{ background: "#3a3d4e", color: "#fff" }} />
+                <Form.Item name="email" label="Email">
+                  <Input />
                 </Form.Item>
-                <Form.Item name="status" label={<span style={{ color: "#fff" }}>Trạng thái</span>}>
-                  <Select style={{ background: "#3a3d4e", color: "#fff" }}>
+                <Form.Item name="status" label="Trạng thái">
+                  <Select>
                     <Option value="Đã kích hoạt">Đã kích hoạt</Option>
                     <Option value="Chưa kích hoạt">Chưa kích hoạt</Option>
                   </Select>

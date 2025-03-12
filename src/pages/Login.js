@@ -7,8 +7,8 @@ const Login = () => {
 
   const onFinish = (values) => {
     console.log("Login data:", values);
-    localStorage.setItem("isAuthenticated", "true"); // Đánh dấu đã đăng nhập
-    navigate("/dashboard"); // Chuyển đến trang Dashboard
+    localStorage.setItem("isAuthenticated", "true"); 
+    navigate("/dashboard"); 
   };
 
   return (

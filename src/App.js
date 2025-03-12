@@ -20,7 +20,7 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
         <Route path="/users" element={<PrivateRoute element={<Users />} />} />
         <Route path="/statistical" element={<PrivateRoute element={<Statistical />} />} />
-        <Route path="/backup-restore" element={<PrivateRoute element={<BackupRestore />} />} />
+        <Route path="/backup" element={<PrivateRoute element={<BackupRestore />} />} />
       </Routes>
     </Router>
   );

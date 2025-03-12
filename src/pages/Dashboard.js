@@ -31,15 +31,15 @@ const recentActivities = [
 
 const Dashboard = () => {
   return (
-    <Layout style={{ height: "150vh", background: "#1a1d2e" }}>
+    <Layout style={{ height: "150vh", background: "#f5f5f5" }}>
       <Sidebar />
       <Layout>
         <HeaderComponent />
-        <Content style={{ padding: "16px", background: "#1a1d2e", color: "white" }}>
+        <Content style={{ padding: "16px", background: "#f5f5f5", color: "black" }}>
           <Row gutter={[16, 16]}>
             {[{ title: "Kho phim", value: 900 }, { title: "Phim hài", value: 120 }, { title: "Phim 5D", value: 340 }, { title: "Kinh dị", value: 80 }, { title: "Hoạt hình", value: 120 }, { title: "Phim mới", value: 300 }].map((item, index) => (
               <Col span={4} key={index}>
-                <Card style={{ background: "#252a41", textAlign: "center", color: "white" }}>
+                <Card style={{ background: "#ffffff", textAlign: "center", color: "black" }}>
                   <Progress type="circle" percent={item.value / 10} width={50} />
                   <div style={{ marginTop: "10px", fontSize: "16px", fontWeight: "bold" }}>{item.title}</div>
                   <div style={{ fontSize: "18px", color: "#FFCE56" }}>{item.value}</div>
@@ -49,11 +49,11 @@ const Dashboard = () => {
           </Row>
           <Row gutter={[16, 16]} style={{ marginTop: "16px" }}>
             <Col span={12}>
-              <Card title="Thống kê người dùng" style={{ background: "#252a41", color: "white" }}>
+              <Card title="Thống kê người dùng" style={{ background: "#ffffff", color: "black" }}>
                 <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={lineData}>
-                    <XAxis dataKey="name" stroke="#ddd" />
-                    <YAxis stroke="#ddd" />
+                    <XAxis dataKey="name" stroke="#333" />
+                    <YAxis stroke="#333" />
                     <Tooltip />
                     <Line type="monotone" dataKey="users" stroke="#FFCE56" strokeWidth={2} />
                   </LineChart>
@@ -61,7 +61,7 @@ const Dashboard = () => {
               </Card>
             </Col>
             <Col span={12}>
-              <Card title="Loại video" style={{ background: "#252a41", color: "white" }}>
+              <Card title="Loại video" style={{ background: "#ffffff", color: "black" }}>
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
@@ -77,7 +77,7 @@ const Dashboard = () => {
           </Row>
           <Row gutter={[18, 6]}>
             <Col span={18}>
-              <Card title="Hoạt động" style={{ marginTop: "16px", background: "#252a41", color: "white" }}>
+              <Card title="Hoạt động" style={{ marginTop: "16px", background: "#ffffff", color: "black" }}>
                 <Table 
                   dataSource={activityData} 
                   columns={[
@@ -85,27 +85,27 @@ const Dashboard = () => {
                     { title: "CONTACTS", dataIndex: "contact", key: "contact" },
                     { title: "Action", dataIndex: "action", key: "action" },
                     { title: "Status", dataIndex: "status", key: "status" }
-                  ]} 
+                  ]}
                   pagination={false} 
                 />
               </Card>
             </Col>
             <Col span={6}>
-              <Card title="Hoạt động gần đây" style={{ marginTop: "16px", background: "#252a41", padding: "16px", color: "white" }}>
-                <div style={{ color: "white", fontSize: "14px" }}>
+              <Card title="Hoạt động gần đây" style={{ marginTop: "16px", background: "#ffffff", padding: "16px", color: "black" }}>
+                <div style={{ color: "black", fontSize: "14px" }}>
                   {recentActivities.map((activity, index) => (
                     <div 
                       key={index} 
                       style={{ 
                         padding: "12px 16px", 
                         marginBottom: "8px", 
-                        background: "#364156", 
+                        background: "#ddd", 
                         borderRadius: "8px", 
                         boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)" 
                       }}
                     >
                       <strong style={{ color: "#FFCE56" }}>{activity.user}</strong> {activity.action}
-                      <div style={{ fontSize: "12px", color: "#aaa", marginTop: "4px" }}>{activity.time}</div>
+                      <div style={{ fontSize: "12px", color: "#666", marginTop: "4px" }}>{activity.time}</div>
                     </div>
                   ))}
                 </div>
