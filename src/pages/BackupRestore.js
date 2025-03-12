@@ -17,6 +17,17 @@ import HeaderComponent from "../components/Header";
 const { Content } = Layout;
 
 const BackupRestore = () => {
+  // Style chung cho icon
+  const iconHoverStyle = {
+    fontSize: "30px",
+    transition: "transform 0.3s ease-in-out",
+    cursor: "pointer",
+  };
+
+  // Xử lý hiệu ứng hover
+  const iconHoverEffect = (e) => (e.target.style.transform = "scale(1.2)");
+  const iconLeaveEffect = (e) => (e.target.style.transform = "scale(1)");
+
   return (
     <Layout style={{ minHeight: "100vh", background: "#F5F7FA" }}>
       <Sidebar />
@@ -36,11 +47,11 @@ const BackupRestore = () => {
               background: "linear-gradient(135deg, #6a11cb, #2575fc)",
               borderRadius: "20px",
               padding: "40px",
-              width: "50%",
+              width: "100%",
               textAlign: "center",
               color: "white",
               boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-              position: "relative", // Để căn chỉnh nhóm icon bên trái
+              position: "relative",
             }}
           >
             {/* Tiêu đề */}
@@ -66,29 +77,57 @@ const BackupRestore = () => {
 
             {/* Các icon nhỏ ở giữa */}
             <div style={{ display: "flex", justifyContent: "center", gap: "40px", margin: "20px 0" }}>
-              <SyncOutlined style={{ fontSize: "30px" }} />
-              <FileOutlined style={{ fontSize: "30px" }} />
+              <SyncOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
+              <FileOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
             </div>
             <div style={{ display: "flex", justifyContent: "center", gap: "40px" }}>
-              <FolderOpenOutlined style={{ fontSize: "30px" }} />
-              <SettingOutlined style={{ fontSize: "30px" }} />
+              <FolderOpenOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
+              <SettingOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
             </div>
 
             {/* ✅ Nhóm 3 icon bên trái - Căn dọc */}
             <div
               style={{
                 position: "absolute",
-                left: "10px", // Căn sát bên trái
+                left: "10px",
                 top: "50%",
-                transform: "translateY(-50%)", // Giữ vị trí chính giữa theo chiều dọc
+                transform: "translateY(-50%)",
                 display: "flex",
-                flexDirection: "column", // Xếp icon theo chiều dọc
-                gap: "20px", // Khoảng cách giữa các icon
+                flexDirection: "column",
+                gap: "20px",
               }}
             >
-              <UserOutlined style={{ fontSize: "30px" }} />
-              <CloudOutlined style={{ fontSize: "30px" }} />
-              <SettingOutlined style={{ fontSize: "30px" }} />
+              <UserOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
+              <CloudOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
+              <SettingOutlined
+                style={iconHoverStyle}
+                onMouseEnter={iconHoverEffect}
+                onMouseLeave={iconLeaveEffect}
+              />
             </div>
 
             {/* Hộp Application Backup */}
@@ -104,13 +143,28 @@ const BackupRestore = () => {
               <h3 style={{ marginBottom: "10px" }}>Application Backup</h3>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <VideoCameraOutlined style={{ fontSize: "20px", marginRight: "8px" }} /> Video
+                  <VideoCameraOutlined
+                    style={{ fontSize: "20px", marginRight: "8px", cursor: "pointer" }}
+                    onMouseEnter={iconHoverEffect}
+                    onMouseLeave={iconLeaveEffect}
+                  />{" "}
+                  Video
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <FileOutlined style={{ fontSize: "20px", marginRight: "8px" }} /> File
+                  <FileOutlined
+                    style={{ fontSize: "20px", marginRight: "8px", cursor: "pointer" }}
+                    onMouseEnter={iconHoverEffect}
+                    onMouseLeave={iconLeaveEffect}
+                  />{" "}
+                  File
                 </div>
                 <div style={{ display: "flex", alignItems: "center" }}>
-                  <PictureOutlined style={{ fontSize: "20px", marginRight: "8px" }} /> Picture
+                  <PictureOutlined
+                    style={{ fontSize: "20px", marginRight: "8px", cursor: "pointer" }}
+                    onMouseEnter={iconHoverEffect}
+                    onMouseLeave={iconLeaveEffect}
+                  />{" "}
+                  Picture
                 </div>
               </div>
             </div>
@@ -126,7 +180,16 @@ const BackupRestore = () => {
                 fontWeight: "bold",
                 padding: "10px 20px",
                 fontSize: "16px",
+                transition: "all 0.3s ease-in-out",
                 boxShadow: "0 5px 15px rgba(255, 64, 129, 0.3)",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#ff79b0";
+                e.target.style.boxShadow = "0 8px 20px rgba(255, 64, 129, 0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "#ff4081";
+                e.target.style.boxShadow = "0 5px 15px rgba(255, 64, 129, 0.3)";
               }}
             >
               Backup Now
