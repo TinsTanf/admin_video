@@ -8,7 +8,7 @@ import BackupRestore from "./pages/BackupRestore";
 
 // Component bảo vệ các trang cần đăng nhập
 const PrivateRoute = ({ element }) => {
-  const isAuthenticated = localStorage.getItem("isAuthenticated"); // Kiểm tra trạng thái đăng nhập
+  const isAuthenticated = localStorage.getItem("isAuthenticated"); 
   return isAuthenticated ? element : <Navigate to="/" />;
 };
 
