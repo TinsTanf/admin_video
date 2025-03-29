@@ -81,10 +81,10 @@ const Dashboard = () => {
                 <Table 
                   dataSource={activityData} 
                   columns={[
-                    { title: "Người dùng", dataIndex: "user", key: "user" },
-                    { title: "CONTACTS", dataIndex: "contact", key: "contact" },
-                    { title: "Action", dataIndex: "action", key: "action" },
-                    { title: "Status", dataIndex: "status", key: "status" }
+                    { title: "Người dùng", dataIndex: "user", key: "user", sorter: (a, b) => a.status.props.percent - b.status.props.percent,},
+                    { title: "CONTACTS", dataIndex: "contact", key: "contact", sorter: (a, b) => a.contact.localeCompare(b.contact),},
+                    { title: "Action", dataIndex: "action", key: "action", sorter: (a, b) => a.action.localeCompare(b.action),},
+                    { title: "Status", dataIndex: "status", key: "status", sorter: (a, b) => a.status.props.percent - b.status.props.percent,}
                   ]}
                   pagination={false} 
                 />

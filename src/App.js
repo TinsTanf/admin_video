@@ -5,8 +5,9 @@ import Dashboard from "./pages/Dashboard";
 import Users from "./pages/Users";
 import Statistical from "./pages/Statistical";
 import BackupRestore from "./pages/BackupRestore";
+import Video from './pages/Video';
 
-// Component bảo vệ các trang cần đăng nhập
+
 const PrivateRoute = ({ element }) => {
   const isAuthenticated = localStorage.getItem("isAuthenticated"); 
   return isAuthenticated ? element : <Navigate to="/" />;
@@ -21,6 +22,7 @@ function App() {
         <Route path="/users" element={<PrivateRoute element={<Users />} />} />
         <Route path="/statistical" element={<PrivateRoute element={<Statistical />} />} />
         <Route path="/backup" element={<PrivateRoute element={<BackupRestore />} />} />
+        <Route path="/Video" element={<PrivateRoute element={<Video />} />} /> {/* Cập nhật tuyến đường */}
       </Routes>
     </Router>
   );
